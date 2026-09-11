@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  body.lang-am {
+    font-family: 'Noto Serif Ethiopic', 'Inter', system-ui, sans-serif;
+  }
+  body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am h4, body.lang-am h5, body.lang-am h6 {
+    font-family: 'Noto Serif Ethiopic', 'Cormorant Garamond', Georgia, serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl border border-white/20 dark:border-slate-700/50;
+  }
+  .glass-card {
+    @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-white/30 dark:border-slate-700/50 shadow-lg rounded-2xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary-600/40 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-gold-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/40 hover:scale-[1.02] active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-600 px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98];
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 transition-all duration-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-gold-500;
+  }
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+  .container-narrow {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .skeleton {
+    @apply bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 bg-[length:200%_100%] animate-shimmer;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Coffee theme ===== */
+/* Override dark: utilities when .coffee is active by re-declaring the
+   dark: variant targets with coffee-specific values. We use CSS layers
+   so these win over Tailwind utilities of the same specificity. */
+
+@layer base {
+  .coffee {
+    --tw-bg-opacity: 1;
+  }
+  .coffee body {
+    @apply bg-amber-50 text-amber-950 antialiased;
+    background-color: #f5efe6;
+    color: #2e1f17;
+  }
+  .coffee * {
+    border-color: #d4c4b0;
+  }
+}
+
+@layer components {
+  .coffee .glass {
+    background: rgba(255, 250, 240, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 196, 176, 0.5);
+  }
+  .coffee .glass-card {
+    background: rgba(255, 250, 240, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 196, 176, 0.5);
+    box-shadow: 0 10px 30px rgba(120, 80, 40, 0.12);
+  }
+  .coffee .gradient-text {
+    background: linear-gradient(to right, #92400e, #b45309);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  /* Coffee overrides for dark: utilities used across the app */
+  .coffee .dark\:bg-slate-800\/70 { background: rgba(255, 250, 240, 0.7); }
+  .coffee .dark\:bg-slate-800\/80 { background: rgba(255, 250, 240, 0.85); }
+  .coffee .dark\:bg-slate-800 { background-color: #f5efe6; }
+  .coffee .dark\:bg-slate-900 { background-color: #f5efe6; }
+  .coffee .dark\:bg-slate-950 { background-color: #efe7da; }
+  .coffee .dark\:bg-slate-700\/50 { background: rgba(212, 196, 176, 0.4); }
+  .coffee .dark\:text-slate-100 { color: #2e1f17; }
+  .coffee .dark\:text-slate-200 { color: #4a3526; }
+  .coffee .dark\:text-slate-300 { color: #5a4530; }
+  .coffee .dark\:text-slate-400 { color: #8a7060; }
+  .coffee .dark\:text-slate-500 { color: #9a8070; }
+  .coffee .dark\:border-slate-700 { border-color: #d4c4b0; }
+  .coffee .dark\:border-slate-600 { border-color: #c4b4a0; }
+  .coffee .dark\:border-slate-800 { border-color: #d4c4b0; }
+  .coffee .dark\:border-slate-700\/50 { border-color: rgba(212, 196, 176, 0.5); }
+  .coffee .dark\:hover\:bg-slate-800:hover { background-color: #e8dcc8; }
+  .coffee .dark\:from-slate-800 { --tw-gradient-from: #e8dcc8; }
+  .coffee .dark\:to-slate-900 { --tw-gradient-to: #f5efe6; }
+  .coffee .dark\:bg-primary-900\/30 { background: rgba(146, 64, 14, 0.2); }
+  .coffee .dark\:text-primary-300 { color: #b45309; }
+  .coffee .dark\:text-gold-300 { color: #b45309; }
+  .coffee .dark\:text-gold-400 { color: #d97706; }
+  .coffee .dark\:fill-gold-900\/30 { fill: rgba(180, 83, 9, 0.2); }
+  .coffee .dark\:bg-gold-900\/30 { background: rgba(180, 83, 9, 0.2); }
+  .coffee .dark\:bg-slate-800\/50 { background: rgba(232, 220, 200, 0.6); }
+  .coffee .dark\:bg-slate-700 { background-color: #e0d4c0; }
+  .coffee .dark\:bg-slate-700\/30 { background: rgba(212, 196, 176, 0.3); }
+  .coffee .dark\:from-slate-700 { --tw-gradient-from: #d4c4b0; }
+  .coffee .dark\:via-slate-700 { --tw-gradient-via: #d4c4b0; }
+  .coffee .dark\:to-slate-800 { --tw-gradient-to: #e8dcc8; }
+  .coffee .dark\:placeholder\:text-slate-400::placeholder { color: #9a8070; }
+  .coffee .dark\:focus\:border-primary-500:focus { border-color: #92400e; }
+  .coffee .dark\:focus\:ring-primary-500\/20:focus { --tw-ring-color: rgba(146, 64, 14, 0.2); }
+  .coffee .dark\:shadow-primary-600\/25 { --tw-shadow-color: rgba(146, 64, 14, 0.2); }
+  .coffee .dark\:shadow-primary-600\/40 { --tw-shadow-color: rgba(146, 64, 14, 0.35); }
+  .coffee .dark\:bg-primary-800 { background-color: #78350f; }
+  .coffee .dark\:text-slate-600 { color: #6a5040; }
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
