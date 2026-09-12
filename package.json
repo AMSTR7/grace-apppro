@@ -12,14 +12,18 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
+    "@videosdk.live/react-sdk": "^1.1.1",
+    "crypto-js": "^4.2.0",
     "framer-motion": "^11.18.2",
     "glin-profanity": "^1.0.0",
     "lucide-react": "^0.446.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@types/crypto-js": "^4.2.2",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Heart, Copy, Check, Send, Mail, MessageCircle, Music2, Phone } from 'lucide-react';
 import { useToast } from '@/context/ToastContext';
 
@@ -24,6 +25,7 @@ export default function Donate() {
 
   return (
     <div className="min-h-screen">
+      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-slate-900 dark:from-slate-950 dark:via-primary-950 dark:to-slate-950 py-16">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-72 h-72 bg-gold-500 rounded-full blur-3xl animate-float" />
@@ -45,8 +47,10 @@ export default function Donate() {
         </div>
       </section>
 
+      {/* Content */}
       <section className="section-padding">
         <div className="max-w-2xl mx-auto">
+          {/* Support message */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,6 +62,7 @@ export default function Donate() {
             </p>
           </motion.div>
 
+          {/* Telebirr */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -87,6 +92,7 @@ export default function Donate() {
             </div>
           </motion.div>
 
+          {/* Telegram */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -113,6 +119,7 @@ export default function Donate() {
             </a>
           </motion.div>
 
+          {/* Email */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -137,6 +144,7 @@ export default function Donate() {
             </a>
           </motion.div>
 
+          {/* TikTok */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -163,6 +171,7 @@ export default function Donate() {
             </a>
           </motion.div>
 
+          {/* Thank you */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

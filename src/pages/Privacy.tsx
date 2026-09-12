@@ -60,6 +60,7 @@ const sections = [
 export default function Privacy() {
   return (
     <div className="min-h-screen">
+      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-slate-900 dark:from-slate-950 dark:via-primary-950 dark:to-slate-950 py-14">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-72 h-72 bg-gold-500 rounded-full blur-3xl animate-float" />
@@ -74,11 +75,12 @@ export default function Privacy() {
         </div>
       </section>
 
+      {/* Content */}
       <section className="section-padding">
         <div className="max-w-2xl mx-auto">
           {sections.map((section, i) => (
             <motion.div
-n              key={i}
+              key={i}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
@@ -89,6 +91,7 @@ n              key={i}
             </motion.div>
           ))}
 
+          {/* Contact card */}
           <div className="glass-card p-5 mt-6">
             <div className="flex items-center gap-3">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-gold-500">
