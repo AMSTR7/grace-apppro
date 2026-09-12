@@ -144,26 +144,6 @@ export default function Navbar({
                   Bible
                 </a>
               </li>
-              <li>
-                <a
-                  className="site-navbar__link"
-                  href="/blog"
-                  onClick={(event) => handleNavigation(event, "/blog")}
-                  aria-current={currentPath === "/blog" ? "page" : undefined}
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  className="site-navbar__link"
-                  href="/courses"
-                  onClick={(event) => handleNavigation(event, "/courses")}
-                  aria-current={currentPath === "/courses" ? "page" : undefined}
-                >
-                  Courses
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
