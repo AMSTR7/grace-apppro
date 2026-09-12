@@ -1,12 +1,7 @@
-import { Filter } from 'glin-profanity';
+import { checkProfanity } from 'glin-profanity';
 
 const MAX_BAD_WORDS = 3;
 const REPLACE_WITH = '****';
-
-const filter = new Filter({
-  languages: ['english'],
-  replaceWith: REPLACE_WITH,
-});
 
 export interface ProfanityResult {
   cleaned: string;
@@ -16,10 +11,17 @@ export interface ProfanityResult {
 }
 
 export function filterText(text: string): ProfanityResult {
-  const result = filter.checkProfanity(text);
+  const result = checkProfanity(text, {
+    languages: ['english'],
+    detectLeetspeak: true,
+    normalizeUnicode: true,
+    autoReplace: true,
+    replaceWith: REPLACE_WITH,
+  });
+
   const badWordCount = result.profaneWords.length;
   return {
-    cleaned: result.processedText ?? text,
+    cleaned: result.autoReplaced,
     hasProfanity: result.containsProfanity,
     blocked: badWordCount >= MAX_BAD_WORDS,
     badWordCount,
